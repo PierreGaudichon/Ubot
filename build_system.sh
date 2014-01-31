@@ -8,4 +8,5 @@ jar cf Ubot.jar Ubot.class
 git commit -am "I hate commit message."
 
 # Execute the main (debug)
+echo "\n"
 java Ubot
