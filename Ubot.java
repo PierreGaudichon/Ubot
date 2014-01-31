@@ -53,7 +53,6 @@ public class Ubot{
 
 	public static void main(String[] args) {
 		System.out.println("The Ubot class");
-		Ubot u = new Ubot(1);
-			
+		System.out.println("See https://github.com/PierreGaudichon/Ubot for more information");
 	}
 }
