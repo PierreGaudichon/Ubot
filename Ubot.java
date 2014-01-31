@@ -7,11 +7,7 @@ public class Ubot{
 	private int max = 3;
 	private boolean containsBlock = false;
 	
-	private void goto(int l){
-		if(containsBlock && l != current){
-			Robot.putBlock();
-		}
-
+	private void goto(int l){		
 		if(current <= l && l <= max){
 			Robot.moveRight();
 			current++;
@@ -25,8 +21,14 @@ public class Ubot{
 	}
 
 	public void moveBlock(int from, int to){
-		goto(from);
-		Robot.pickBlock();
+		if(containsBlock && from != current){
+			containsBlock = false;
+		}
+		else{
+			Robot.putBlock();
+			goto(from);
+			Robot.pickBlock();
+		}
 		goto(to);
 		Robot.putBlock();
 	}
