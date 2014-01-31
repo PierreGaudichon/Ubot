@@ -5,10 +5,6 @@ public class Ubot{
 	private int current = 1;
 	private int min = 1;
 	private int max = 3;
-	
-	public Ubot(int start){
-		current = start;
-	}
 
 	public int tellName(){
 		System.out.println("Ubot !!");
