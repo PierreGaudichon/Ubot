@@ -3,15 +3,21 @@ import Robot.*
 public class Ubot{
 
 	private int current = 1;
+	private int min = 1;
+	private int max = 3;
 	private boolean containsBlock = false;
 	
 	private void goto(int l){
+		if(containsBlock && l != current){
+			Robot.putBlock();
+		}
+
 		if(current <= l && l <= max){
 			Robot.moveRight();
 			current++;
 			goto(l);
 		}
-		else if(current >= l && l <= min){
+		else if(current >= l && l >= min){
 			Robot.moveLeft();
 			current--;
 			goto(l);
@@ -29,7 +35,7 @@ public class Ubot{
 		goto(l);
 		Robot.pickBlock();
 		int a = Robot.readBlock();
-		Robot.putBlock();
+		containsBlock = true;
 		return a;
 	}
 
@@ -45,12 +51,13 @@ public class Ubot{
 		Robot.play();
 	}
 
-	public Ubot(int start = 1, int min = 1, int max = 1){
-		current = start;
-
+	public Ubot(int _start = 1, int _min = 1, int _max = 1){
+		current = _start;
+		min = _min;
+		max = _max;
 	}
 
-	public static void main(String[] args) {
+	public static void main(String args[]) {
 		System.out.print("The Ubot class");
 	}
 }
