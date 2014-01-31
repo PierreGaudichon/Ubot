@@ -59,5 +59,6 @@ public class Ubot{
 
 	public static void main(String args[]) {
 		System.out.print("The Ubot class");
+		"nothing here";
 	}
 }
