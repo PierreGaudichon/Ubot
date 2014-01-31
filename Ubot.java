@@ -1,4 +1,4 @@
-import Robot.;
+import Robot.*;
 
 public class Ubot{
 
@@ -6,10 +6,8 @@ public class Ubot{
 	private int min = 1;
 	private int max = 3;
 	
-	public Ubot(int _start, int _min, int _max){
-		current = _start;
-		min = _min;
-		max = _max;
+	public Ubot(int start){
+		current = start;
 	}
 
 	public int tellName(){
@@ -17,39 +15,38 @@ public class Ubot{
 		return 1;
 	}
 
-	/*public void goto(int l){	
+	public void goTo(int l){	
 		if(current <= l && l <= max){
 			Robot.moveRight();
 			current++;
-			goto(l);
+			goTo(l);
 		}
 		else if(current >= l && l >= min){
 			Robot.moveLeft();
 			current--;
-			goto(l);
+			goTo(l);
 		} 
-	}*/
-
-	public void moveBlock(int from, int to){
-		//this.goto(from);
-		tellName();
-		//Robot.pickBlock();
-		//goto(to);
-		//Robot.putBlock();
 	}
 
-	/*public int read(int l){
-		goto(l);
+	public void moveBlock(int from, int to){
+		goTo(from);
+		Robot.pickBlock();
+		goTo(to);
+		Robot.putBlock();
+	}
+
+	public int read(int l){
+		goTo(l);
 		Robot.pickBlock();
 		int a = Robot.readBlock();
 		Robot.putBlock();
 		return a;
 	}
 
-	public void isEmpty(int l){
-		goto(l);
+	public boolean isEmpty(int l){
+		goTo(l);
 		Robot.pickBlock();
-		int a = Robot.isEmptyColumn();
+		boolean a = Robot.isEmptyColumn();
 		Robot.putBlock();
 		return a;
 	}
@@ -58,11 +55,9 @@ public class Ubot{
 		Robot.play();
 	}
 
-	*/
-
 	public static void main(String[] args) {
-		System.out.println("The Ubot clss");
-		Ubot u = new Ubot(1,1,1);
-		
+		System.out.println("The Ubot class");
+		Ubot u = new Ubot(1);
+			
 	}
 }
