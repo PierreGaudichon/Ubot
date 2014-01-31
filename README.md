@@ -1,7 +1,7 @@
 Ubot
 ====
 
-A rewrite of the Robot class.
+A rewrite of the Robot interface. The goal is to abstract the implementation of the Robot.
 
 
 Public methods
